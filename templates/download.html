@@ -1,0 +1,10 @@
+<!doctype html>
+<html>
+<body>
+    <p>Campaign predicted. <a href="{{ url_for('getGetCSV', given_file = file_name) }}">Click here to download predicted file.</a></p>
+
+    <form method="POST" action="/" enctype="multipart/form-data">
+        <p><input type="submit" name="Submit" value="Home Page"></p>
+      </form>
+</body>
+</html>
