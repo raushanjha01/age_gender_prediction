@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+  <meta charset="UTF-8">
+  <title>Campaign Prdiction API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+  <div class="login">
+    <h1>Identify Suitable Campaign by predicting Age and Gender</h1>
+
+    <!-- Main Input For Receiving Query to our ML for the longitude and latitude-->
+    <form action="{{ url_for('getCampaign')}}" method="post">
+      <input type="text" name="longitude" placeholder="longitude" required="required" /><br><br>
+      <input type="text" name="latitude" placeholder="latitude" required="required" /><br><br>
+      <input type="text" name="Day" placeholder="Day" required="required" /><br><br>
+      <input type="text" name="Hour" placeholder="Hour" required="required" /><br><br>
+      <input type="text" name="week" placeholder="week" required="required" /><br><br>
+     <!-- <input type="text" name="app_id" placeholder="app_id" required="required" /><br><br>
+      <input type="text" name="label_id" placeholder="label_id" required="required" /><br><br>
+      <input type="text" name="category" placeholder="category" required="required" /><br><br> -->
+      <button type="submit" class="btn btn-primary btn-block btn-large">Get Campaign</button>
+    </form>
+
+    <form method="POST" action="{{ url_for('uploadFiles')}}" enctype="multipart/form-data">
+      <p><input type="file" name="file"></p>
+      <p><input type="submit" name="Submit" value="Upload"></p>
+    </form>
+
+    <br>
+    <br>
+    {{ prediction_text }}
+
+  </div>
+
+
+</body>
+
+</html>
+
